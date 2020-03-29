@@ -20,8 +20,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("/merchant-api/get-redeem-coupons")
-    Call<RedeemResponse> getRedeem(
-            @Field("branch_id") int branch_id);
+    Call<RedeemResponse> getRedeem(@Field("branch_id") int branch_id);
 
     @POST("/merchant-api/branch-login")
     @FormUrlEncoded
@@ -35,5 +34,9 @@ public interface APIInterface {
 
     @GET("/merchants/{id}/branches/coupons")
     Call<CouponBranchResponse> getCouponsForBranches(@Path("id") String id);
+
+    // coupons com.example.yalladealz_merchant.model.report update
+    @GET("/merchants/coupons/com.example.yalladealz_merchant.model.report")
+    Call<CouponBranchResponse> getCouponReport();
 
 }
