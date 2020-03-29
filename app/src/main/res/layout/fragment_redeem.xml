@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCCCCC">
+
+
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/scroll"
+    android:layout_above="@+id/btnRedeem"
+    android:layout_alignParentTop="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:padding="@dimen/_20sdp"
+            android:background="#fff">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp">
+
+                    <com.ramijemli.percentagechartview.PercentageChartView
+                        android:id="@+id/view_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:pcv_mode="ring"
+                        app:pcv_orientation="counter_clockwise"
+                        app:pcv_startAngle="90"
+                        app:pcv_animDuration="400"
+                        app:pcv_animInterpolator="anticipate_overshoot"
+                        app:pcv_drawBackground="true"
+                        app:pcv_backgroundColor="#fff"
+                        app:pcv_textColor="@color/colorPrimary"
+                        app:pcv_textSize="20sp"
+                        app:pcv_textStyle="bold"
+                        app:pcv_backgroundBarThickness="25dp"
+                        app:pcv_backgroundBarColor="#CCCCCC"
+                        app:pcv_progressBarThickness="10dp"
+                        app:pcv_progressColor="@color/colorPrimary"
+                        app:pcv_progress="10"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/txtRedeemed"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Redeemed"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/txtUnits"
+                        android:textColor="@color/colorPrimary"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Units Sold"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:padding="@dimen/_20sdp"
+            android:background="#fff">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/txtCampaign"
+                    android:textColor="@color/colorPrimary"
+                    android:text="2"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:paddingHorizontal="30dp"
+                    android:text="Impressions for your campaigns on YallaDealz in the last month"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:padding="@dimen/_20sdp"
+            android:background="#fff">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_account_balance_black_24dp"
+                    android:padding="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/txtPayment"
+                    android:text="--"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="No payment yet"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:padding="@dimen/_20sdp"
+            android:background="#fff">
+
+                <lecho.lib.hellocharts.view.PieChartView
+                    android:id="@+id/chart"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_2sdp"
+            android:padding="@dimen/_20sdp"
+            android:background="#fff">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/branch1"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_margin="10dp"
+                        android:background="#ff0000"
+                        />
+
+                    <TextView
+                        android:id="@+id/branchName1"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp" />
+
+                    <TextView
+                        android:layout_marginRight="15dp"
+                        android:textColor="#000000"
+                        android:id="@+id/branchRedeemed1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/branch2"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="10dp"
+                    android:background="#0000ff"
+                    />
+
+                <TextView
+                    android:id="@+id/branchName2"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:textColor="#000000"
+                    android:id="@+id/branchRedeemed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/branch3"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="10dp"
+                    android:background="#008000"
+                    />
+
+                <TextView
+                    android:id="@+id/branchName3"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:textColor="#000000"
+                    android:id="@+id/branchRedeemed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/branch4"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="10dp"
+                    android:background="#ffff00"
+                    />
+
+                <TextView
+                    android:id="@+id/branchName4"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:textColor="#000000"
+                    android:id="@+id/branchRedeemed4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/branch5"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="10dp"
+                    android:background="#008080"
+                    />
+
+                <TextView
+                    android:id="@+id/branchName5"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:textColor="#000000"
+                    android:id="@+id/branchRedeemed5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btnRedeem"
+        android:layout_alignParentBottom="true"
+        android:text="Redeem"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        />
+
+
+    </RelativeLayout>

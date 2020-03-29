@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MerchantCodeFragment"
+    android:background="#F5F4F4"
+    android:id="@+id/merchant_frame">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/material_light_white">
+
+            <EditText
+                android:id="@+id/codeEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter code here"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_16ssp"
+                android:background="@color/material_light_white"
+                android:layout_weight="2"
+                android:lines="1"/>
+
+            <ImageView
+                android:id="@+id/clear"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@mipmap/ic_clear"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/_4sdp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear1"
+            android:text="Redeem this code"
+            android:textSize="@dimen/_14ssp"
+            android:padding="@dimen/_4sdp"
+            android:textAllCaps="false"
+            android:layout_margin="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:background="@color/colorPrimary"
+            android:textColor="#F5F4F4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter the security code in the Voucher"
+            android:layout_below="@id/searchBtn"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/_12ssp"/>
+
+
+    </RelativeLayout>
+
+</FrameLayout>
