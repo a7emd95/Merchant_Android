@@ -110,9 +110,9 @@ public class MerchantCodeFragment extends Fragment {
                 RedeemCoupon coupon = new RedeemCoupon();
                 coupon.setCoupon(codeEt.getEditableText().toString().trim());
 
-                LoginResponse loginResponse = (LoginResponse) SharedUtils.getClass(getContext(), "user");
-                coupon.setLogin_id(loginResponse.getLoginId());
-                coupon.setBranch_id(loginResponse.getBranchId());
+//                LoginResponse loginResponse = (LoginResponse) SharedUtils.getClass(getContext(), "user");
+//                coupon.setLogin_id(loginResponse.getLoginId());
+//                coupon.setBranch_id(loginResponse.getBranchId());
 
 //                redeemViewModel.useRedeem(coupon).observe(this, new Observer<String>() {
 //                    @Override
