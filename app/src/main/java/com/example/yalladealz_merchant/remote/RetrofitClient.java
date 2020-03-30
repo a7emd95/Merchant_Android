@@ -15,6 +15,7 @@ public class RetrofitClient {
     private final static String BASE_URL = "https://yalla-ebdaa.herokuapp.com/api/";
     private static APIInterface API = null;
 
+
     private final static String Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
             "eyJfaWQiOiI1ZTdmYTM5MWZkNTJjODFhMzAyNTQ5ZDciLCJpYXQiOjE1ODU0MzU5MTAsImV4cCI6MTU4NjI5OTkxMH0." +
             "aj8pU_3RphsCS8k-J-FpRwBF_VV75-9Vpc6lxGa9cQQ";
@@ -27,13 +28,13 @@ public class RetrofitClient {
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-        httpClient.addInterceptor(new Interceptor() {
+      /*  httpClient.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request().newBuilder().addHeader("authorization", Key).build();
                 return chain.proceed(request);
             }
-        });
+        });*/
 
         httpClient.addInterceptor(httpLoggingInterceptor);
 

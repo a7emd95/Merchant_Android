@@ -1,18 +1,27 @@
 
-package com.example.yalladealz_merchant.model.report;
+package com.example.yalladealz_merchant.model.singleMerchant;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Branch {
+public class Id {
 
     @SerializedName("_id")
     @Expose
     private String id;
+    @SerializedName("socialMediaLinks")
+    @Expose
+    private SocialMediaLinks_ socialMediaLinks;
     @SerializedName("location")
     @Expose
-    private Location location;
+    private Location__ location;
+    @SerializedName("contactPerson")
+    @Expose
+    private ContactPerson_ contactPerson;
+    @SerializedName("website")
+    @Expose
+    private String website;
     @SerializedName("address")
     @Expose
     private String address;
@@ -40,12 +49,21 @@ public class Branch {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("password")
+    @Expose
+    private String password;
+    @SerializedName("parentId")
+    @Expose
+    private String parentId;
+    @SerializedName("branches")
+    @Expose
+    private List<Object> branches = null;
     @SerializedName("coupons")
     @Expose
     private List<Coupon> coupons = null;
     @SerializedName("balance")
     @Expose
-    private Balance_ balance;
+    private List<Balance> balance = null;
 
     public String getId() {
         return id;
@@ -55,12 +73,36 @@ public class Branch {
         this.id = id;
     }
 
-    public Location getLocation() {
+    public SocialMediaLinks_ getSocialMediaLinks() {
+        return socialMediaLinks;
+    }
+
+    public void setSocialMediaLinks(SocialMediaLinks_ socialMediaLinks) {
+        this.socialMediaLinks = socialMediaLinks;
+    }
+
+    public Location__ getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Location__ location) {
         this.location = location;
+    }
+
+    public ContactPerson_ getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(ContactPerson_ contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public String getAddress() {
@@ -135,6 +177,30 @@ public class Branch {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
+    public List<Object> getBranches() {
+        return branches;
+    }
+
+    public void setBranches(List<Object> branches) {
+        this.branches = branches;
+    }
+
     public List<Coupon> getCoupons() {
         return coupons;
     }
@@ -143,11 +209,11 @@ public class Branch {
         this.coupons = coupons;
     }
 
-    public Balance_ getBalance() {
+    public List<Balance> getBalance() {
         return balance;
     }
 
-    public void setBalance(Balance_ balance) {
+    public void setBalance(List<Balance> balance) {
         this.balance = balance;
     }
 

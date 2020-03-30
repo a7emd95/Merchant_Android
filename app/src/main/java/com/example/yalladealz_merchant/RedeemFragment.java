@@ -14,6 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.yalladealz_merchant.model.branches.Branch;
+import com.example.yalladealz_merchant.model.branches.MerchantsBranches;
+import com.example.yalladealz_merchant.model.singleMerchant.Coupon_;
+import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.responses.BranchesResponse;
 import com.example.yalladealz_merchant.responses.CouponBranchResponse;
 import com.example.yalladealz_merchant.responses.RedeemCouponResponse;
@@ -94,7 +98,7 @@ public class RedeemFragment extends Fragment {
     // private RedeemViewModel model;
     private RedeemCouponViewModel redeemModel;
     private BranchesViewModel bModel;
-    private List<BranchesResponse.Brance> branches;
+    private List<Branch> branches;
 
     List<String> sortedNames = Lists.newArrayList();
     List<Integer> sortedData = Lists.newArrayList();
@@ -133,9 +137,50 @@ public class RedeemFragment extends Fragment {
             }
         });
 
-        bModel.branch("6");
-        bModel.coupons("6");
-        bModel.getBranches().observe(this, new Observer<BranchesResponse>() {
+        bModel.branch("5e7df19d7b4c7203fc7c23b8");
+        bModel.coupons("5e7df19d7b4c7203fc7c23b8");
+        bModel.getBranches().observe(this, new Observer<MerchantsBranches>() {
+            @Override
+            public void onChanged(MerchantsBranches merchantsBranches) {
+
+                branches = new ArrayList<>();
+                branches.addAll(merchantsBranches.getBranches());
+                multiMap = LinkedListMultimap.create();
+
+                bModel.getBranchesCoupones().observe(getActivity(), new Observer<SingleMerchant>() {
+                    @Override
+                    public void onChanged(SingleMerchant singleMerchant) {
+
+                        List<com.example.yalladealz_merchant.model.singleMerchant.Branch> CouponBranch = new ArrayList<>();
+                        CouponBranch.addAll(singleMerchant.getMerchant().getBranches());
+
+                        for (com.example.yalladealz_merchant.model.singleMerchant.Branch brance : CouponBranch) {
+                            String name = new String();
+
+                            for (int n = 0; n < branches.size(); n++) {
+                                if (brance.getBranchId().toString().equals( branches.get(n).getId())) {
+                                    name = branches.get(n).getName();
+                                }
+
+                            }
+
+                            int i = 0;
+                            for (Coupon_ coupon : singleMerchant.getMerchant().getCoupons()) {
+                                //if (coupon.getIsUsed()) {
+                                    ++i;
+                              //  }
+                            }
+                            pairList.add(new Pair<>(i, name));
+
+                        }
+
+                        chatView();
+                    }
+                });
+            }
+        });
+
+                /*.observe(this, new Observer<BranchesResponse>() {
             @Override
             public void onChanged(BranchesResponse branchesRespons) {
                 branches = new ArrayList<>();
@@ -173,7 +218,7 @@ public class RedeemFragment extends Fragment {
                     }
                 });
             }
-        });
+        });*/
 
         return v;
     }
