@@ -15,13 +15,10 @@ public class RetrofitClient {
     private final static String BASE_URL = "https://yalla-ebdaa.herokuapp.com/api/";
     private static APIInterface API = null;
 
-<<<<<<<<< Temporary merge branch 1
     private final static String Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
             "eyJfaWQiOiI1ZTdmYTM5MWZkNTJjODFhMzAyNTQ5ZDciLCJpYXQiOjE1ODU0MzU5MTAsImV4cCI6MTU4NjI5OTkxMH0." +
             "aj8pU_3RphsCS8k-J-FpRwBF_VV75-9Vpc6lxGa9cQQ";
-=========
-    //private final static  String Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTdmYTM5MWZkNTJjODFhMzAyNTQ5ZDciLCJpYXQiOjE1ODU0MzU5MTAsImV4cCI6MTU4NjI5OTkxMH0.aj8pU_3RphsCS8k-J-FpRwBF_VV75-9Vpc6lxGa9cQQ";
->>>>>>>>> Temporary merge branch 2
+
 
     public static APIInterface getClient() {
 
