@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.yalladealz_merchant.model.report.ReportResponse;
+import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.remote.APIInterface;
 import com.example.yalladealz_merchant.remote.RetrofitClient;
 
@@ -26,20 +27,20 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.frame, new RedeemFragment()).commit();
 
-      /*  APIInterface apiInterface = RetrofitClient.getClient();
+        APIInterface apiInterface = RetrofitClient.getClient();
 
-        apiInterface.getCouponReport().enqueue(new Callback<ReportResponse>() {
+        apiInterface.getMerchantDetails("5e7df19d7b4c7203fc7c23b8").enqueue(new Callback<SingleMerchant>() {
             @Override
-            public void onResponse(Call<ReportResponse> call, Response<ReportResponse> response) {
+            public void onResponse(Call<SingleMerchant> call, Response<SingleMerchant> response) {
 
             }
 
             @Override
-            public void onFailure(Call<ReportResponse> call, Throwable t) {
+            public void onFailure(Call<SingleMerchant> call, Throwable t) {
 
             }
         });
-        */
+
 
 
     }

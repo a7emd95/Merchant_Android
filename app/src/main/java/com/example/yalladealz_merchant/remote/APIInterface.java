@@ -2,6 +2,7 @@ package com.example.yalladealz_merchant.remote;
 
 import com.example.yalladealz_merchant.model.RedeemCoupon;
 import com.example.yalladealz_merchant.model.report.ReportResponse;
+import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.responses.BranchesResponse;
 import com.example.yalladealz_merchant.responses.CouponBranchResponse;
 import com.example.yalladealz_merchant.responses.RedeemCouponResponse;
@@ -40,4 +41,7 @@ public interface APIInterface {
     @GET("merchants/coupons/report")
     Call<ReportResponse> getCouponReport();
 
+    // get merchant details
+    @GET("merchants/{id}")
+    Call<SingleMerchant> getMerchantDetails(@Path("id") String id);
 }
