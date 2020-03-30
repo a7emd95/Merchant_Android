@@ -46,7 +46,7 @@ public interface APIInterface {
 
     // get merchant details
     @GET("merchants/{id}")
-    Call<SingleMerchant> getMerchantDetails(@Header("authorization") String authorization,@Path("id") String id);
+    Call<SingleMerchant> getMerchantDetails(@Header("authorization") String authorization, @Path("id") String id);
 
     //@Header("authorization") String authorization
 

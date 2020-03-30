@@ -55,9 +55,6 @@ public class Merchant {
     @SerializedName("branches")
     @Expose
     private List<Branch> branches = null;
-    @SerializedName("coupons")
-    @Expose
-    private List<Object> coupons = null;
     @SerializedName("createdAt")
     @Expose
     private String createdAt;
@@ -67,6 +64,15 @@ public class Merchant {
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("totalRedeedmedCouponsRevenue")
+    @Expose
+    private Integer totalRedeedmedCouponsRevenue;
+    @SerializedName("coupons")
+    @Expose
+    private List<Coupon_> coupons = null;
+    @SerializedName("balance")
+    @Expose
+    private List<Balance_> balance = null;
 
     public String getId() {
         return id;
@@ -196,14 +202,6 @@ public class Merchant {
         this.branches = branches;
     }
 
-    public List<Object> getCoupons() {
-        return coupons;
-    }
-
-    public void setCoupons(List<Object> coupons) {
-        this.coupons = coupons;
-    }
-
     public String getCreatedAt() {
         return createdAt;
     }
@@ -226,6 +224,30 @@ public class Merchant {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    public Integer getTotalRedeedmedCouponsRevenue() {
+        return totalRedeedmedCouponsRevenue;
+    }
+
+    public void setTotalRedeedmedCouponsRevenue(Integer totalRedeedmedCouponsRevenue) {
+        this.totalRedeedmedCouponsRevenue = totalRedeedmedCouponsRevenue;
+    }
+
+    public List<Coupon_> getCoupons() {
+        return coupons;
+    }
+
+    public void setCoupons(List<Coupon_> coupons) {
+        this.coupons = coupons;
+    }
+
+    public List<Balance_> getBalance() {
+        return balance;
+    }
+
+    public void setBalance(List<Balance_> balance) {
+        this.balance = balance;
     }
 
 }

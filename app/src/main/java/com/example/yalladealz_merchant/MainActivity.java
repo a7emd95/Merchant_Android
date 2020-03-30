@@ -5,16 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.yalladealz_merchant.model.branches.MerchantsBranches;
-import com.example.yalladealz_merchant.model.report.ReportResponse;
-import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
-import com.example.yalladealz_merchant.remote.APIInterface;
-import com.example.yalladealz_merchant.remote.RetrofitClient;
-
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
