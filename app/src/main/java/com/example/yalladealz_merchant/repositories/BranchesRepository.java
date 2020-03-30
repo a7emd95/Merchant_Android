@@ -7,8 +7,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.yalladealz_merchant.model.branches.MerchantsBranches;
+import com.example.yalladealz_merchant.model.report.ReportResponse;
 import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.remote.RetrofitClient;
+
+import java.time.Year;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,6 +21,8 @@ public class BranchesRepository {
 
     private MutableLiveData<MerchantsBranches> branches = new MutableLiveData<>();
     private MutableLiveData<SingleMerchant> couponBranches = new MutableLiveData<>();
+    private MutableLiveData<ReportResponse> couponReportLiveData = new MutableLiveData<>();
+
     private Application application;
     String Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTdmYTM5MWZkNTJjODFhMzAyNTQ5ZDciLCJpYXQiOjE1ODU0MzU5MTAsImV4cCI6MTU4NjI5OTkxMH0.aj8pU_3RphsCS8k-J-FpRwBF_VV75-9Vpc6lxGa9cQQ";
 
@@ -87,4 +92,32 @@ public class BranchesRepository {
         return couponBranches;
     }
 
+    public LiveData<ReportResponse> getCouponsReport() {
+        return couponReportLiveData;
+    }
+
+    public void couponsReport(String month, String year) {
+
+        Call<ReportResponse> call = RetrofitClient.getClient().getCouponReport(Key,month, year);
+        call.enqueue(new Callback<ReportResponse>() {
+            @Override
+            public void onResponse(Call<ReportResponse> call, Response<ReportResponse> response) {
+
+                if(response.isSuccessful()){
+                    if(response.body() != null) {
+                        couponReportLiveData.postValue(response.body());
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ReportResponse> call, Throwable t) {
+
+                Toast.makeText(application, t.getMessage()+" ", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
 }

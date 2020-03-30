@@ -1,6 +1,8 @@
 package com.example.yalladealz_merchant;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.yalladealz_merchant.model.branches.Branch;
 import com.example.yalladealz_merchant.model.branches.MerchantsBranches;
+import com.example.yalladealz_merchant.model.report.ReportResponse;
 import com.example.yalladealz_merchant.model.singleMerchant.Coupon_;
 import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.responses.BranchesResponse;
@@ -32,8 +35,11 @@ import com.ramijemli.percentagechartview.PercentageChartView;
 
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -167,7 +173,19 @@ public class RedeemFragment extends Fragment {
                             int i = 0;
                             for (Coupon_ coupon : singleMerchant.getMerchant().getCoupons()) {
                                 //if (coupon.getIsUsed()) {
-                                    ++i;
+                                   ++i;
+
+
+                                Log.e("sssss",coupon.getMonth()+"  "+coupon.getYear());
+
+                                bModel.getCouponsReport(coupon.getMonth().toString(),coupon.getYear().toString());
+                                bModel.couponesReport().observe(getActivity(), new Observer<ReportResponse>() {
+                                    @Override
+                                    public void onChanged(ReportResponse reportResponse) {
+
+                                    }
+                                });
+
                               //  }
                             }
                             pairList.add(new Pair<>(i, name));
