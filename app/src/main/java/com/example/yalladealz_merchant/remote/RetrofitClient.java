@@ -15,12 +15,15 @@ public class RetrofitClient {
     private final static String BASE_URL = "https://yalla-ebdaa.herokuapp.com/api/";
     private static APIInterface API = null;
 
-    //private final static  String Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTdmYTM5MWZkNTJjODFhMzAyNTQ5ZDciLCJpYXQiOjE1ODU0MzU5MTAsImV4cCI6MTU4NjI5OTkxMH0.aj8pU_3RphsCS8k-J-FpRwBF_VV75-9Vpc6lxGa9cQQ";
 
-    public static APIInterface getClient(){
+    private final static String Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
+            "eyJfaWQiOiI1ZTdmYTM5MWZkNTJjODFhMzAyNTQ5ZDciLCJpYXQiOjE1ODU0MzU5MTAsImV4cCI6MTU4NjI5OTkxMH0." +
+            "aj8pU_3RphsCS8k-J-FpRwBF_VV75-9Vpc6lxGa9cQQ";
+
+    public static APIInterface getClient() {
 
 
-        HttpLoggingInterceptor  httpLoggingInterceptor = new HttpLoggingInterceptor();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
@@ -35,7 +38,7 @@ public class RetrofitClient {
 
         httpClient.addInterceptor(httpLoggingInterceptor);
 
-        if(API == null){
+        if (API == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(httpClient.build())

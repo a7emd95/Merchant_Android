@@ -30,9 +30,13 @@ public interface APIInterface {
     @POST("/api/merchants/login")
     @FormUrlEncoded
     Call<LoginResponse> login(@Field("email") String email, @Field("password") String password);
+//    //old redeem coupon api
+//    @POST("/merchant-api/redeem-coupon")
+//    Call<RedeemCouponResponse> useRedeem(@Body RedeemCoupon coupon);
 
-    @POST("/merchant-api/redeem-coupon")
-    Call<RedeemCouponResponse> useRedeem(@Body RedeemCoupon coupon);
+    //new redeem coupon api
+    @POST("api/coupons/redeem")
+    Call<RedeemCouponResponse> getMessageRedeemResponse();
 
     @GET("/merchants/{id}/branches")
     Call<BranchesResponse> getBranches(@Path("id") String id);
@@ -53,5 +57,9 @@ public interface APIInterface {
     //get Merchant Branches api
     @GET("/merchants/{id}/branches")
     Call<MerchantsBranches> getMerchantBranches(@Header("authorization") String authorization, @Path("id") String id);
+
+
+
+
 
 }
