@@ -27,7 +27,7 @@ public interface APIInterface {
     @POST("/merchant-api/get-redeem-coupons")
     Call<RedeemResponse> getRedeem(@Field("branch_id") int branch_id);
 
-    @POST("/merchant-api/branch-login")
+    @POST("/api/merchants/login")
     @FormUrlEncoded
     Call<LoginResponse> login(@Field("email") String email, @Field("password") String password);
 
