@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class ContactPerson {
 
-    @SerializedName("location")
-    @Expose
-    private Location_ location;
     @SerializedName("name")
     @Expose
     private String name;
@@ -24,14 +21,9 @@ public class ContactPerson {
     @SerializedName("email")
     @Expose
     private String email;
-
-    public Location_ getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location_ location) {
-        this.location = location;
-    }
+    @SerializedName("location")
+    @Expose
+    private Location_ location;
 
     public String getName() {
         return name;
@@ -71,6 +63,14 @@ public class ContactPerson {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Location_ getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location_ location) {
+        this.location = location;
     }
 
 }

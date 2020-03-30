@@ -34,6 +34,9 @@ public class Id {
     @SerializedName("totalRedeedmedCoupons")
     @Expose
     private Integer totalRedeedmedCoupons;
+    @SerializedName("totalRedeedmedCouponsRevenue")
+    @Expose
+    private Integer totalRedeedmedCouponsRevenue;
     @SerializedName("isArchived")
     @Expose
     private Boolean isArchived;
@@ -49,18 +52,18 @@ public class Id {
     @SerializedName("password")
     @Expose
     private String password;
-    @SerializedName("username")
+    @SerializedName("parentId")
     @Expose
-    private String username;
+    private String parentId;
     @SerializedName("branches")
     @Expose
     private List<Object> branches = null;
     @SerializedName("coupons")
     @Expose
-    private List<Object> coupons = null;
-    @SerializedName("parentId")
+    private List<Coupon> coupons = null;
+    @SerializedName("balance")
     @Expose
-    private String parentId;
+    private List<Balance> balance = null;
 
     public String getId() {
         return id;
@@ -134,6 +137,14 @@ public class Id {
         this.totalRedeedmedCoupons = totalRedeedmedCoupons;
     }
 
+    public Integer getTotalRedeedmedCouponsRevenue() {
+        return totalRedeedmedCouponsRevenue;
+    }
+
+    public void setTotalRedeedmedCouponsRevenue(Integer totalRedeedmedCouponsRevenue) {
+        this.totalRedeedmedCouponsRevenue = totalRedeedmedCouponsRevenue;
+    }
+
     public Boolean getIsArchived() {
         return isArchived;
     }
@@ -174,12 +185,12 @@ public class Id {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
     public List<Object> getBranches() {
@@ -190,20 +201,20 @@ public class Id {
         this.branches = branches;
     }
 
-    public List<Object> getCoupons() {
+    public List<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(List<Object> coupons) {
+    public void setCoupons(List<Coupon> coupons) {
         this.coupons = coupons;
     }
 
-    public String getParentId() {
-        return parentId;
+    public List<Balance> getBalance() {
+        return balance;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    public void setBalance(List<Balance> balance) {
+        this.balance = balance;
     }
 
 }

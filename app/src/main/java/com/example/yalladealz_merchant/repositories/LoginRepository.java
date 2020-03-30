@@ -34,10 +34,10 @@ public class LoginRepository {
                 .enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        if (response.isSuccessful() && response.body().isStatus()) {
+                        if (response.isSuccessful()) {
                             verbose("onLoginResponseSuccess: success: " + response.body().toString());
                             Toast.makeText(application, "Logged in", Toast.LENGTH_SHORT).show();
-                            SharedUtils.saveClass(application, "user", response.body());
+                            SharedUtils.saveClass(application, "token", response.body());
                             replaceFragment(manager, R.id.frame, new RedeemFragment());
 
                         }

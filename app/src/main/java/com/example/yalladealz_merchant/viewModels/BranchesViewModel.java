@@ -6,21 +6,26 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.yalladealz_merchant.model.branches.MerchantsBranches;
+import com.example.yalladealz_merchant.model.report.ReportResponse;
+import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.repositories.BranchesRepository;
-import com.example.yalladealz_merchant.responses.BranchesResponse;
-import com.example.yalladealz_merchant.responses.CouponBranchResponse;
+
+import retrofit2.http.Query;
 
 public class BranchesViewModel extends AndroidViewModel {
 
     private BranchesRepository branchesRepository;
-    private LiveData<BranchesResponse> branchesResponseLiveData;
-    private LiveData<CouponBranchResponse> couponBranchesResponseLiveData;
+    private LiveData<MerchantsBranches> branchesResponseLiveData;
+    private LiveData<SingleMerchant> couponBranchesResponseLiveData;
+    private LiveData<ReportResponse> couponReportLiveData;
 
     public BranchesViewModel(@NonNull Application application) {
         super(application);
         branchesRepository = new BranchesRepository(application);
         branchesResponseLiveData = branchesRepository.getBranches();
         couponBranchesResponseLiveData = branchesRepository.getBranchesCoupones();
+        couponReportLiveData = branchesRepository.getCouponsReport();
 
     }
 
@@ -28,7 +33,7 @@ public class BranchesViewModel extends AndroidViewModel {
         branchesRepository.branches(id);
     }
 
-    public LiveData<BranchesResponse> getBranches(){
+    public LiveData<MerchantsBranches> getBranches(){
         return branchesResponseLiveData;
     }
 
@@ -36,7 +41,17 @@ public class BranchesViewModel extends AndroidViewModel {
         branchesRepository.coupons(id);
     }
 
-    public LiveData<CouponBranchResponse> getBranchesCoupones(){
+    public LiveData<SingleMerchant> getBranchesCoupones(){
         return couponBranchesResponseLiveData;
     }
+
+    public void getCouponsReport(String month, String year){
+        branchesRepository.couponsReport(month, year);
+    }
+
+    public LiveData<ReportResponse> couponesReport(){
+        return couponReportLiveData;
+    }
+
+
 }
