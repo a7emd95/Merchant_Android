@@ -1,6 +1,7 @@
 package com.example.yalladealz_merchant.remote;
 
 import com.example.yalladealz_merchant.model.RedeemCoupon;
+import com.example.yalladealz_merchant.model.branches.MerchantsBranches;
 import com.example.yalladealz_merchant.model.report.ReportResponse;
 import com.example.yalladealz_merchant.model.singleMerchant.SingleMerchant;
 import com.example.yalladealz_merchant.responses.BranchesResponse;
@@ -15,8 +16,10 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface APIInterface {
 
@@ -39,9 +42,16 @@ public interface APIInterface {
 
     // coupons report update
     @GET("merchants/coupons/report")
-    Call<ReportResponse> getCouponReport();
+    Call<ReportResponse> getCouponReport(@Header("authorization") String authorization,@Query("month") String month,@Query("year") String year);
 
     // get merchant details
     @GET("merchants/{id}")
-    Call<SingleMerchant> getMerchantDetails(@Path("id") String id);
+    Call<SingleMerchant> getMerchantDetails(@Header("authorization") String authorization,@Path("id") String id);
+
+    //@Header("authorization") String authorization
+
+    //get Merchant Branches api
+    @GET("/merchants/{id}/branches")
+    Call<MerchantsBranches> getMerchantBranches(@Header("authorization") String authorization, @Path("id") String id);
+
 }

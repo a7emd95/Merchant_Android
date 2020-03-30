@@ -1,6 +1,7 @@
 
 package com.example.yalladealz_merchant.model.report;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -39,6 +40,12 @@ public class Branch {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("coupons")
+    @Expose
+    private List<Coupon> coupons = null;
+    @SerializedName("balance")
+    @Expose
+    private Balance_ balance;
 
     public String getId() {
         return id;
@@ -126,6 +133,22 @@ public class Branch {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Coupon> getCoupons() {
+        return coupons;
+    }
+
+    public void setCoupons(List<Coupon> coupons) {
+        this.coupons = coupons;
+    }
+
+    public Balance_ getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Balance_ balance) {
+        this.balance = balance;
     }
 
 }
