@@ -10,17 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.yalladealz_merchant.responses.BranchesResponse;
 import com.example.yalladealz_merchant.responses.CouponBranchResponse;
-import com.example.yalladealz_merchant.responses.RedeemResponse;
+import com.example.yalladealz_merchant.responses.RedeemCouponResponse;
 import com.example.yalladealz_merchant.utils.CommonMethod;
 import com.example.yalladealz_merchant.viewModels.BranchesViewModel;
-import com.example.yalladealz_merchant.viewModels.RedeemViewModel;
+import com.example.yalladealz_merchant.viewModels.RedeemCouponViewModel;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
@@ -92,7 +91,8 @@ public class RedeemFragment extends Fragment {
     LinearLayout branch5;
 
 
-    private RedeemViewModel model;
+    // private RedeemViewModel model;
+    private RedeemCouponViewModel redeemModel;
     private BranchesViewModel bModel;
     private List<BranchesResponse.Brance> branches;
 
@@ -110,17 +110,26 @@ public class RedeemFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_redeem, container, false);
         ButterKnife.bind(this, v);
-        model = ViewModelProviders.of(this).get(RedeemViewModel.class);
+        //  model = ViewModelProviders.of(this).get(RedeemViewModel.class);
+        redeemModel = ViewModelProviders.of(this).get(RedeemCouponViewModel.class);
         bModel = ViewModelProviders.of(this).get(BranchesViewModel.class);
 
 
-        model.redeemResponse(6);
+        //model.redeemResponse(6);
 
-        model.getData().observe(this, new Observer<RedeemResponse>() {
+//        model.getData().observe(this, new Observer<RedeemResponse>() {
+//            @Override
+//            public void onChanged(RedeemResponse redeemResponse) {
+//
+//                //  loadData(redeemResponse);
+//            }
+//        });
+        redeemModel.getCouponRedeem();
+        redeemModel.redeemLiveData.observe(this, new Observer<RedeemCouponResponse>() {
             @Override
-            public void onChanged(RedeemResponse redeemResponse) {
-
-                //  loadData(redeemResponse);
+            public void onChanged(RedeemCouponResponse redeemCouponResponse) {
+                //Coupon response is created
+               // loadData(redeemCouponResponse);
             }
         });
 
@@ -176,9 +185,9 @@ public class RedeemFragment extends Fragment {
 
     }
 
-    private void loadData(RedeemResponse redeemResponse) {
+    private void loadData(RedeemCouponResponse redeemResponse) {
         if (redeemResponse != null) {
-            Toast.makeText(getContext(), redeemResponse.getTotalAmount().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), redeemResponse.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -218,22 +227,22 @@ public class RedeemFragment extends Fragment {
                     case 0:
                         branch1.setVisibility(View.VISIBLE);
                         branchName1.setText(pairList.get(item).second);
-                        branchRedeemed1.setText(pairList.get(item).first +" Coupones");
+                        branchRedeemed1.setText(pairList.get(item).first + " Coupones");
                         break;
                     case 1:
                         branch2.setVisibility(View.VISIBLE);
                         branchName2.setText(pairList.get(item).second);
-                        branchRedeemed2.setText(pairList.get(item).first +" Coupones");
+                        branchRedeemed2.setText(pairList.get(item).first + " Coupones");
                         break;
                     case 2:
                         branch3.setVisibility(View.VISIBLE);
                         branchName3.setText(pairList.get(item).second);
-                        branchRedeemed3.setText(pairList.get(item).first +" Coupones");
+                        branchRedeemed3.setText(pairList.get(item).first + " Coupones");
                         break;
                     case 3:
                         branch4.setVisibility(View.VISIBLE);
                         branchName4.setText(pairList.get(item).second);
-                        branchRedeemed4.setText(pairList.get(item).first +" Coupones");
+                        branchRedeemed4.setText(pairList.get(item).first + " Coupones");
                         break;
                     case 4:
                         branch5.setVisibility(View.VISIBLE);

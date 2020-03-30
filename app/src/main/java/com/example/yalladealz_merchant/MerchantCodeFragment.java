@@ -17,13 +17,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.yalladealz_merchant.model.RedeemCoupon;
 import com.example.yalladealz_merchant.responses.LoginResponse;
 import com.example.yalladealz_merchant.responses.RedeemCouponResponse;
 import com.example.yalladealz_merchant.utils.SharedUtils;
-import com.example.yalladealz_merchant.viewModels.RedeemViewModel;
+import com.example.yalladealz_merchant.viewModels.RedeemCouponViewModel;
+//import com.example.yalladealz_merchant.viewModels.RedeemViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import butterknife.BindView;
@@ -42,7 +44,8 @@ public class MerchantCodeFragment extends Fragment {
     @BindView(R.id.searchBtn)
     Button searchBtn;
 
-    private RedeemViewModel redeemViewModel;
+   // private RedeemViewModel redeemViewModel;
+    private RedeemCouponViewModel redeemCouponViewModel;
 
     public MerchantCodeFragment() {
         // Required empty public constructor
@@ -64,7 +67,8 @@ public class MerchantCodeFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
-        redeemViewModel = ViewModelProviders.of(this).get(RedeemViewModel.class);
+       // redeemViewModel = ViewModelProviders.of(this).get(RedeemViewModel.class);
+        redeemCouponViewModel = ViewModelProviders.of(this).get(RedeemCouponViewModel.class);
 
         return view;
     }
@@ -110,11 +114,17 @@ public class MerchantCodeFragment extends Fragment {
                 coupon.setLogin_id(loginResponse.getLoginId());
                 coupon.setBranch_id(loginResponse.getBranchId());
 
-                redeemViewModel.useRedeem(coupon).observe(this, new Observer<String>() {
+//                redeemViewModel.useRedeem(coupon).observe(this, new Observer<String>() {
+//                    @Override
+//                    public void onChanged(String s) {
+//
+//                        Snackbar.make(view.findViewById(R.id.merchant_frame), s, Snackbar.LENGTH_SHORT).show();
+//                    }
+//                });
+                redeemCouponViewModel.redeemLiveData.observe(this, new Observer<RedeemCouponResponse>() {
                     @Override
-                    public void onChanged(String s) {
-
-                        Snackbar.make(view.findViewById(R.id.merchant_frame), s, Snackbar.LENGTH_SHORT).show();
+                    public void onChanged(RedeemCouponResponse redeemCouponResponse) {
+                        Snackbar.make(view.findViewById(R.id.merchant_frame), redeemCouponResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
                     }
                 });
 
